@@ -231,5 +231,19 @@
         ],
       },
     ],
+    achievements: [
+      { id: "nhap-mon", name: "Nhập môn", desc: "Khởi hành một đời tu tiên." },
+      { id: "truc-co", name: "Trúc Cơ", desc: "Bước vào Trúc Cơ." },
+      { id: "kim-dan", name: "Kim Đan", desc: "Kết thành kim đan." },
+      { id: "nguyen-anh", name: "Nguyên Anh", desc: "Ngưng được nguyên anh." },
+      { id: "do-kiep", name: "Độ Kiếp", desc: "Đứng trước lôi kiếp cuối." },
+      { id: "phi-thang", name: "Phi thăng", desc: "Vượt khỏi vòng sinh tử." },
+      { id: "het-tho", name: "Hết thọ", desc: "Thọ nguyên cạn trước khi phi thăng." },
+      { id: "loi-kiep", name: "Gãy mạch", desc: "Lôi kiếp đánh nát kinh mạch." },
+      { id: "dut-mach", name: "Đứt mạch", desc: "Một lựa chọn làm kinh mạch đứt lìa." },
+      { id: "thu-tran", name: "Thủ trận", desc: "Thắng một trận giao đấu." },
+      { id: "muoi-ky", name: "Mười kỳ ngộ", desc: "Xuống núi mười lần." },
+      { id: "cong-phap", name: "Tâm pháp", desc: "Học công pháp đầu tiên." },
+    ],
   };
 })(typeof globalThis !== "undefined" ? globalThis : this);

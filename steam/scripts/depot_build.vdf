@@ -1,0 +1,14 @@
+"DepotBuild"
+{
+	"DepotID" "0"
+	"ContentRoot" "../.."
+	"FileMapping"
+	{
+		"LocalPath" "*"
+		"DepotPath" "."
+		"recursive" "1"
+	}
+	"FileExclusion" ".git/*"
+	"FileExclusion" "test/*"
+	"FileExclusion" "steam/*"
+}

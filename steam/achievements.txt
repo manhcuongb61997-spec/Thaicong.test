@@ -1,0 +1,17 @@
+Dán vào Steamworks. Cột api name là tên nội bộ, giữ nguyên chữ không dấu. Tên hiển thị và mô tả là tiếng Việt.
+
+api name     Tên hiển thị    Mô tả
+nhap-mon     Nhập môn        Khởi hành một đời tu tiên.
+truc-co      Trúc Cơ         Bước vào Trúc Cơ.
+kim-dan      Kim Đan         Kết thành kim đan.
+nguyen-anh   Nguyên Anh      Ngưng được nguyên anh.
+do-kiep      Độ Kiếp         Đứng trước lôi kiếp cuối.
+phi-thang    Phi thăng       Vượt khỏi vòng sinh tử.
+het-tho      Hết thọ         Thọ nguyên cạn trước khi phi thăng.
+loi-kiep     Gãy mạch        Lôi kiếp đánh nát kinh mạch.
+dut-mach     Đứt mạch        Một lựa chọn làm kinh mạch đứt lìa.
+thu-tran     Thủ trận        Thắng một trận giao đấu.
+muoi-ky      Mười kỳ ngộ     Xuống núi mười lần.
+cong-phap    Tâm pháp        Học công pháp đầu tiên.
+
+Trong game, các thành tựu này hiện lên khi người chơi đạt được. Việc báo lên máy chủ Steam cần Steamworks SDK và AppID thật, gắn sau khi tài khoản đối tác đã có. Chưa gắn SDK trong bản này, nên đừng khai báo là thành tựu đã đồng bộ với Steam.
