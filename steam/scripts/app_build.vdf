@@ -1,0 +1,11 @@
+"AppBuild"
+{
+	"AppID" "0"
+	"Desc" "Thái Công Truyền Thừa — bản tiếng Việt"
+	"ContentRoot" "../.."
+	"BuildOutput" "../output"
+	"Depots"
+	{
+		"0" "depot_build.vdf"
+	}
+}

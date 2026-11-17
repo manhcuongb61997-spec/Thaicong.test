@@ -1,0 +1,30 @@
+Tên trên Steam
+Thái Công Truyền Thừa
+
+Mô tả ngắn
+Một đời tu tiên trong lòng bàn tay. Chọn ba thiên phú, bế quan, xuống núi kỳ ngộ, rồi phá cảnh trước khi thọ nguyên cạn.
+
+Mô tả dài
+Thái Công gật đầu. Ba thiên phú đã khắc vào mệnh.
+
+Bạn chọn đúng ba năng lực, đặt đạo hiệu, rồi đi hết một đời. Mỗi năm chỉ làm một việc: bế quan để tích tu vi, xuống núi gặp kỳ ngộ, hoặc nghỉ để hồi sức. Khi tu vi đầy thì phá tầng. Đến tường cảnh giới thì phá cảnh — thành công thì thọ dài thêm, thất bại thì lôi kiếp có thể đoạt mạng.
+
+Trên đường có chợ, bí kíp, pháp bảo, lá phù và yêu thú. Chiến đấu làm mất máu và linh thạch, không kết liễu một đời. Đời chỉ khép khi hết thọ, khi kinh mạch đứt, hoặc khi bạn phi thăng.
+
+Toàn bộ chữ trong game là tiếng Việt: giao diện, thiên phú, nhật ký, kết cục và thành tựu. Phông chữ được nhúng sẵn để dấu hiển thị đúng trên Windows.
+
+Thể loại
+Độc lập, nhập vai, mô phỏng, một người chơi
+
+Ngôn ngữ
+Tiếng Việt — ngôn ngữ gốc. Giao diện, mô tả và thành tựu đều là tiếng Việt. Không có bản tiếng Anh.
+
+Cấu hình
+Windows 10 trở lên, hoặc SteamOS.
+Microsoft Edge, Google Chrome, hoặc Chromium.
+Khoảng 50 MB trống.
+Không cần mạng sau khi tải xong. Tiến trình lưu trên máy.
+
+Thành tựu trong game
+Nhập môn, Trúc Cơ, Kim Đan, Nguyên Anh, Độ Kiếp, Phi thăng, Hết thọ, Gãy mạch, Đứt mạch, Thủ trận, Mười kỳ ngộ, Tâm pháp.
+Danh sách để dán vào Steamworks nằm ở steam/achievements.txt.

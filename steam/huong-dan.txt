@@ -1,0 +1,21 @@
+Thái Công Truyền Thừa đã là bản tiếng Việt. Phần này chuẩn bị gói để đưa lên Steam.
+
+1. Đăng ký Steamworks và trả phí ứng dụng. Máy này không có tài khoản đối tác, không có AppID, và không có Steamworks SDK.
+
+2. Tạo ứng dụng. Đặt tiếng Việt là ngôn ngữ gốc. Dán tên, mô tả ngắn và mô tả dài từ steam/store_vietnamese.txt. Không cần trang tiếng Anh nếu bạn chỉ phát hành tiếng Việt.
+
+3. Tạo 12 thành tựu theo steam/achievements.txt. Giữ nguyên api name.
+
+4. Mở steam/scripts/app_build.vdf và steam/scripts/depot_build.vdf. Thay số 0 bằng AppID và Depot ID thật. Đừng dùng 480: đó là app Spacewar của Valve, không phải game này.
+
+5. Trên máy Windows đã cài steamcmd, đứng ở thư mục gốc của game rồi chạy:
+   steamcmd +login TAI_KHOAN +run_app_build steam/scripts/app_build.vdf +quit
+
+6. Trong Steamworks, phần Launch Options:
+   Windows: file thực thi ThaiCong.bat, thư mục làm việc là thư mục game.
+   Linux và SteamOS: file thực thi ThaiCong.sh.
+   Hai file này mở game bằng cửa sổ Edge hoặc Chrome, không có thanh trình duyệt. Nút Thoát trong game ghi lại hành trình rồi đóng cửa sổ đó.
+
+7. Đặt cấu hình hệ thống và ngôn ngữ như trong steam/store_vietnamese.txt, rồi gửi duyệt.
+
+Gói chơi là trang web cùng phông chữ nhúng. Không có file exe vì máy dựng gói không có bộ biên dịch Windows. Khi Steamworks đã cấp AppID, có thể gắn SDK sau mà không phải viết lại game.

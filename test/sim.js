@@ -38,6 +38,10 @@ assert(Math.abs(d0.def - 10 * 1.2 * 1.1) < 0.01, "def stack " + d0.def);
 assert(d0.stamMax === Math.round(100 * 1.1), "stam " + d0.stamMax);
 assert(Math.abs(d0.tuViBonus - 0.2) < 0.001, "tu vi bonus");
 assert(base.hp === d0.hpMax && base.stamina === d0.stamMax, "full vitals");
+assert(base.achievements.length === 1 && base.achievements[0] === "nhap-mon", "nhap mon");
+assert(CONFIG.achievements.length === 12, "achievement count");
+const marks = "àáạảãăắằẳẵặâấầẩẫậèéẹẻẽêếềểễệìíịỉĩòóọỏõôốồổỗộơớờởỡợùúụủũưứừửữựỳýỵỷỹđ";
+assert(CONFIG.achievements.every((item) => [...(item.name + item.desc)].some((ch) => marks.includes(ch.toLowerCase()))), "achievement diacritics");
 
 const poor = run("B", ["di-ma", "menh-ngheo", "mot-mon"]);
 assert(poor.lifespan === 54, "di ma life " + poor.lifespan);
@@ -100,11 +104,18 @@ while (!climber.ending && guard++ < 400) {
   }
 }
 assert(climber.ending && climber.ending.kind === "ascend", "scripted ascend " + (climber.ending && climber.ending.kind) + " age " + climber.age + "/" + climber.lifespan + " realm " + climber.realm);
+assert(climber.achievements.indexOf("phi-thang") !== -1, "phi thang achievement");
+assert(["truc-co", "kim-dan", "nguyen-anh", "do-kiep"].every((id) => climber.achievements.indexOf(id) !== -1), "realm achievements " + climber.achievements.join(","));
+assert(climber.achievements.indexOf("het-tho") === -1, "ascend is not old age");
 assert(climber.age < climber.lifespan || climber.ending.kind === "ascend", "alive at ascend");
 
 const round = Rules.serialize(base);
 const back = Rules.hydrate(round);
 assert(back && back.name === "A" && back.talents.length === 3, "roundtrip");
+const oldSave = JSON.parse(round);
+delete oldSave.achievements;
+const revived = Rules.hydrate(oldSave);
+assert(revived && revived.achievements[0] === "nhap-mon", "old save backfill");
 assert(Rules.hydrate("{") === null, "bad json");
 assert(Rules.hydrate('{"v":1,"talents":["nope","nope","nope"]}') === null, "bad talent");
 

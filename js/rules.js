@@ -177,7 +177,16 @@
     return d;
   }
 
-  function passYear(state, rng) {
+  function grant(state, id, fx) {
+    if (!Array.isArray(state.achievements)) state.achievements = [];
+    if (state.achievements.indexOf(id) !== -1) return;
+    const def = (C().achievements || []).find((item) => item.id === id);
+    if (!def) return;
+    state.achievements.push(id);
+    if (fx) fx.push({ type: "achievement", text: "Thành tựu · " + def.name });
+  }
+
+  function passYear(state, rng, fx, holdDeath) {
     state.year += 1;
     state.age += 1;
     if (state.buffs.injury > 0) state.buffs.injury -= 1;
@@ -186,8 +195,9 @@
       state.shop = rollShop(state, rng);
       state.shopStamp = era;
     }
-    if (!state.ending && state.age >= state.lifespan) {
+    if (!holdDeath && !state.ending && state.age >= state.lifespan) {
       state.ending = { kind: "death", reason: "hết thọ" };
+      grant(state, "het-tho", fx);
     }
   }
 
@@ -417,6 +427,7 @@
       state.lifespan += op.v;
       if (op.v < 0 && state.lifespan <= state.age) {
         state.ending = { kind: "death", reason: "kinh mạch" };
+        grant(state, "dut-mach", fx);
       }
       fx.push({ type: "life", n: op.v, text: (op.v > 0 ? "Tuổi thọ +" : "Tuổi thọ ") + op.v });
       return;
@@ -493,6 +504,7 @@
       state.stones += fight.enemy.rewardStones;
       const tu = gainTuVi(state, fight.enemy.rewardTuVi);
       state.stats.wins += 1;
+      if (state.stats.wins === 1) grant(state, "thu-tran", fx);
       const text = "Thắng " + name + ". Linh thạch +" + fight.enemy.rewardStones + ", tu vi +" + tu + ".";
       pushLog(state, text);
       fx.push({ type: "stones", n: fight.enemy.rewardStones, text: "Linh thạch +" + fight.enemy.rewardStones });
@@ -552,7 +564,9 @@
       shopStamp: 0,
       seq: 1,
       intro: true,
+      achievements: [],
     };
+    grant(state, "nhap-mon");
     for (const id of ids) {
       const t = talent(id);
       if (t.lifespan) state.lifespan += t.lifespan;
@@ -592,7 +606,7 @@
       fx.push({ type: "tuVi", n: extra, text: "Tâm đắc +" + extra });
       line += " Có một chút tâm đắc.";
     }
-    passYear(state, rng);
+    passYear(state, rng, fx);
     pushLog(state, line);
     fx.push({ type: "log", text: line });
     return { ok: true, fx, open: state.ending ? "ending" : null };
@@ -611,21 +625,19 @@
     const beforeSt = state.stamina;
     state.hp = Math.min(d.hpMax, state.hp + heal);
     state.stamina = Math.min(d.stamMax, state.stamina + stam);
-    passYear(state, rng);
+    const fx = [];
+    passYear(state, rng, fx);
     const parts = [];
     if (state.hp - beforeHp > 0) parts.push("Sinh lực +" + (state.hp - beforeHp));
     if (state.stamina - beforeSt > 0) parts.push("Thể lực +" + (state.stamina - beforeSt));
     const text = "Nghỉ ngơi" + (parts.length ? ". " + parts.join(", ") + "." : ".");
     pushLog(state, text);
-    return {
-      ok: true,
-      fx: [
-        { type: "hp", n: state.hp - beforeHp, text: "Sinh lực +" + (state.hp - beforeHp) },
-        { type: "stam", n: state.stamina - beforeSt, text: "Thể lực +" + (state.stamina - beforeSt) },
-        { type: "log", text },
-      ],
-      open: state.ending ? "ending" : null,
-    };
+    fx.push(
+      { type: "hp", n: state.hp - beforeHp, text: "Sinh lực +" + (state.hp - beforeHp) },
+      { type: "stam", n: state.stamina - beforeSt, text: "Thể lực +" + (state.stamina - beforeSt) },
+      { type: "log", text }
+    );
+    return { ok: true, fx, open: state.ending ? "ending" : null };
   }
 
   function explore(state, rng) {
@@ -634,10 +646,13 @@
     if (state.stamina < C().costs.explore) return { ok: false, reason: "Thể lực không đủ để xuống núi.", fx: [] };
     state.stamina -= C().costs.explore;
     state.stats.explores += 1;
-    passYear(state, rng);
+    const fx = [];
+    passYear(state, rng, fx);
+    if (state.stats.explores === 10) grant(state, "muoi-ky", fx);
     if (state.ending) {
       pushLog(state, "Thọ nguyên đứt trên đường xuống núi.");
-      return { ok: true, fx: [{ type: "log", text: "Thọ nguyên đứt trên đường xuống núi." }], open: "ending" };
+      fx.push({ type: "log", text: "Thọ nguyên đứt trên đường xuống núi." });
+      return { ok: true, fx, open: "ending" };
     }
     const cat = rollCategory(state, rng);
     const pool = C().encounters.filter((e) => e.cat === cat);
@@ -645,7 +660,7 @@
     const beast = enc.cat === "combat" || enc.beastName ? makeBeast(state, rng, enc, 1) : null;
     state.pending = { kind: "event", eventId: enc.id, beast };
     pushLog(state, "Kỳ ngộ: " + enc.title + ".");
-    return { ok: true, fx: [], open: "event" };
+    return { ok: true, fx, open: "event" };
   }
 
   function choose(state, choiceId, rng) {
@@ -776,8 +791,9 @@
       const realm = realmDef(state.realm);
       if (kind === "ascend") {
         state.stats.breaks += 1;
-        passYear(state, rng);
+        passYear(state, rng, fx, true);
         state.ending = { kind: "ascend", reason: "phi thăng" };
+        grant(state, "phi-thang", fx);
         const text = "Lôi kiếp tan. Bạn bước khỏi vòng sinh tử.";
         pushLog(state, text);
         fx.push({ type: "log", text });
@@ -793,7 +809,8 @@
         const filled = sync(state);
         state.hp = filled.hpMax;
         state.stamina = filled.stamMax;
-        passYear(state, rng);
+        grant(state, next.id, fx);
+        passYear(state, rng, fx);
         const text = "Phá cảnh thành công. Bạn bước vào " + next.name + ". Thọ +" + next.life + ".";
         pushLog(state, text);
         fx.push({ type: "log", text });
@@ -815,8 +832,11 @@
       if (wall) {
         state.lifespan -= state.realm >= 2 ? 8 : 4;
         const die = rng() < deathChance(state) || state.lifespan <= state.age;
-        if (die) state.ending = { kind: "death", reason: "lôi kiếp" };
-        passYear(state, rng);
+        if (die) {
+          state.ending = { kind: "death", reason: "lôi kiếp" };
+          grant(state, "loi-kiep", fx);
+        }
+        passYear(state, rng, fx);
         const text = state.ending && state.ending.reason === "lôi kiếp"
           ? "Lôi kiếp đánh nát kinh mạch."
           : "Phá cảnh thất bại. Thọ giảm, kinh mạch chấn động.";
@@ -846,7 +866,9 @@
     state.arts.push(artId);
     const text = "Lĩnh ngộ " + artDef(artId).name + ".";
     pushLog(state, text);
-    return { ok: true, fx: [{ type: "log", text }], open: null };
+    const fx = [{ type: "log", text }];
+    if (state.arts.length === 1) grant(state, "cong-phap", fx);
+    return { ok: true, fx, open: null };
   }
 
   function toggleEquip(state, gearUid) {
@@ -929,6 +951,7 @@
     if (offer.kind === "art") {
       state.arts.push(offer.id);
       fx.push({ type: "log", text: "Học " + artDef(offer.id).name + "." });
+      if (state.arts.length === 1) grant(state, "cong-phap", fx);
     } else if (offer.kind === "gear") {
       const gear = mintGear(state, gearDef(offer.id));
       state.bag.push(gear);
@@ -1065,6 +1088,7 @@
       refreshCost: C().costs.refresh,
       canRefresh: !busy(state) && state.stones >= C().costs.refresh,
       log: state.log.slice(0, 14),
+      achievements: (C().achievements || []).filter((item) => (state.achievements || []).indexOf(item.id) !== -1).map((item) => ({ name: item.name, desc: item.desc })),
       actions, stats: state.stats, intro: state.intro, ending: state.ending ? endingView(state) : null,
       pending: pendingView(state),
     };
@@ -1121,6 +1145,10 @@
       breaks: state.stats.breaks,
       talents: state.talents.map((id) => talent(id).name),
       arts: state.arts.map((id) => artDef(id).name),
+      achievements: (state.achievements || []).map((id) => {
+        const def = (C().achievements || []).find((item) => item.id === id);
+        return def ? def.name : "";
+      }).filter(Boolean),
     };
   }
 
@@ -1132,6 +1160,7 @@
       if (data.talents.some((id) => !talent(id))) return null;
       if (!Array.isArray(data.arts) || !Array.isArray(data.bag) || !Array.isArray(data.log)) return null;
       if (data.realm < 0 || data.realm >= C().realms.length) return null;
+      if (!Array.isArray(data.achievements)) data.achievements = ["nhap-mon"];
       return data;
     } catch (err) {
       return null;

@@ -54,16 +54,17 @@
     if (run && id === "path") document.title = "Thái Công · " + Rules.present(run).realmName;
     else document.title = id === "end" ? "Thái Công · Kết" : "Thái Công · Chọn thiên phú";
   }
-  function float(text, bad) {
+  function float(text, bad, stay) {
     if (!text) return;
-    const node = el("div", { class: "floater" + (bad ? " bad" : ""), text });
+    const node = el("div", { class: "floater" + (bad ? " bad" : "") + (stay ? " stay" : ""), text });
     $("floaters").append(node);
-    setTimeout(() => node.remove(), 1000);
+    setTimeout(() => node.remove(), stay ? 2400 : 1000);
   }
   function paintFx(fx) {
     (fx || []).forEach((item) => {
       if (item.type === "tuVi" || item.type === "stones" || item.type === "life" || item.type === "stam") float(item.text, false);
       if (item.type === "hp") float(item.text, item.n < 0);
+      if (item.type === "achievement") float(item.text, false, true);
     });
   }
 
@@ -183,6 +184,7 @@
       ["Trận thắng", String(view.wins)],
       ["Đột phá", String(view.breaks)],
       ["Linh thạch", num(view.stones)],
+      ["Thành tựu", view.achievements.join(", ") || "—"],
     ];
     rows.forEach((row) => {
       stats.append(el("div", null, [el("dt", { text: row[0] }), el("dd", { text: row[1] })]));
@@ -348,6 +350,8 @@
       const rank = CONFIG.ranks[talent.rank];
       body.append(el("div", { class: "item" }, [el("b", { text: talent.name }), el("small", { text: rank.name + " · " + talent.desc })]));
     });
+    const names = view.achievements.map((item) => item.name);
+    body.append(el("p", { class: "status", text: names.length ? "Thành tựu: " + names.join(", ") + "." : "Chưa có thành tựu." }));
     setBody(body);
     setActions([
       button("Tu lại từ đầu", confirmRestart, false),
@@ -436,8 +440,33 @@
     renderEnd();
     show("end");
   }
+  let toastStart = false;
+  function celebrateStart() {
+    if (!toastStart || !run) return;
+    toastStart = false;
+    const ach = CONFIG.achievements.find((item) => item.id === "nhap-mon");
+    if (ach) float("Thành tựu · " + ach.name, false, true);
+  }
+  function leave() {
+    if (run && !run.ending) save();
+    openModal("confirm", "Thoát game?");
+    setBody(el("p", { text: "Hành trình đã được ghi lại trên máy này. Đóng cửa sổ là thoát." }));
+    setActions([
+      button("Thoát", () => {
+        closeModal();
+        window.close();
+        setTimeout(() => {
+          const text = "Cửa sổ vẫn mở. Hãy đóng cửa sổ game để thoát.";
+          notice(text);
+          if (run && !$("path").hidden) $("path-notice").textContent = text;
+        }, 240);
+      }, true),
+      button("Ở lại", closeModal, false),
+    ]);
+  }
   function begin(name, ids) {
     run = Rules.createRun({ name, talentIds: ids, rng: Math.random });
+    toastStart = true;
     save();
     show("path");
     renderPath();
@@ -472,6 +501,9 @@
 
   $("guide").addEventListener("click", showGuide);
   $("path-guide").addEventListener("click", showGuide);
+  $("quit").addEventListener("click", leave);
+  $("path-quit").addEventListener("click", leave);
+  $("end-quit").addEventListener("click", leave);
   $("roll").addEventListener("click", () => {
     shuffle(Math.random);
     notice("Đã đổi sáu thiên phú.");
@@ -522,6 +554,7 @@
   dialog.addEventListener("close", () => {
     const mode = dialog.dataset.mode;
     dialog.dataset.mode = "";
+    if (mode === "intro") celebrateStart();
     if (mode === "rite-done" && run && run.ending) showEnd();
   });
   window.addEventListener("keydown", (event) => {

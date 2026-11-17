@@ -12,12 +12,16 @@
   <div class="wrap">
     <header class="top">
       <b>Thái Công Truyền Thừa</b>
-      <button type="button" class="quiet" id="guide">Lời sư phụ</button>
+      <div class="top-links">
+        <button type="button" class="quiet" id="guide">Lời sư phụ</button>
+        <button type="button" class="quiet" id="quit">Thoát</button>
+      </div>
     </header>
     <section class="hero">
       <div class="hero-copy">
         <h1>Thức tỉnh tiên thiên</h1>
         <p>Chọn ba thiên phú. Rồi đi cho đến khi hết thọ, hoặc đến ngày phi thăng.</p>
+        <p class="edition">Bản tiếng Việt</p>
       </div>
       <img src="assets/hero.png" alt="Đạo nhân đội nón lá, râu bạc, áo thâm">
     </section>
@@ -42,7 +46,10 @@
   <div class="path-wrap">
     <header class="top">
       <b id="path-name"></b>
-      <button type="button" class="quiet" id="path-guide">Lời sư phụ</button>
+      <div class="top-links">
+        <button type="button" class="quiet" id="path-guide">Lời sư phụ</button>
+        <button type="button" class="quiet" id="path-quit">Thoát</button>
+      </div>
     </header>
     <div>
       <article class="realm" id="realm-card">
@@ -100,6 +107,7 @@
   <p id="end-text"></p>
   <dl id="end-stats"></dl>
   <button type="button" class="btn primary" id="end-again">Tu lại từ đầu</button>
+  <button type="button" class="btn" id="end-quit">Thoát</button>
 </section>
 
 <dialog id="modal" aria-labelledby="modal-title">
