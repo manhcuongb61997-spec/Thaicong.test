@@ -11,6 +11,7 @@ tools:
   - replace_file_content
 skills:
   - skills/duyet
+  - skills/playtesting
 ---
 
 Làm theo skill `duyet`. Ghi vào mục Duyệt trên phiếu.

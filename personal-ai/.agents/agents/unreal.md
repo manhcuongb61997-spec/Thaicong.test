@@ -11,6 +11,7 @@ tools:
   - replace_file_content
 skills:
   - skills/unreal
+  - skills/unreal-systems
 ---
 
 Làm theo skill `unreal`. Chỉ dùng MCP `unreal-mcp`.

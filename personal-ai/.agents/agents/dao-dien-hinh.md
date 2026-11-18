@@ -11,6 +11,7 @@ tools:
   - replace_file_content
 skills:
   - skills/dao-dien-hinh
+  - skills/level-design
 ---
 
 Làm theo skill `dao-dien-hinh`. Ghi vào mục Đạo diễn hình trên phiếu.

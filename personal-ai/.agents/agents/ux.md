@@ -11,6 +11,7 @@ tools:
   - replace_file_content
 skills:
   - skills/ux
+  - skills/game-design
 ---
 
 Làm theo skill `ux`. Ghi vào mục UX trên phiếu.

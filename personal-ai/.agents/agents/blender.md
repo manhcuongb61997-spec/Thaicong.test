@@ -11,6 +11,7 @@ tools:
   - replace_file_content
 skills:
   - skills/blender
+  - skills/blender-modeling
 ---
 
 Làm theo skill `blender`. Chỉ dùng MCP `blender-mcp`.

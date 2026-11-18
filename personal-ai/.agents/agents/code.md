@@ -12,6 +12,7 @@ tools:
   - run_command
 skills:
   - skills/code
+  - skills/game-build-pipeline
 ---
 
 Làm theo skill `code`. Codex là người sửa file.

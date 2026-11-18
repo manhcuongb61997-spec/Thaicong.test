@@ -11,6 +11,7 @@ tools:
   - replace_file_content
 skills:
   - skills/chuyen-dong
+  - skills/blender-animation
 ---
 
 Làm theo skill `chuyen-dong`. Ghi vào mục Chuyển động trên phiếu.

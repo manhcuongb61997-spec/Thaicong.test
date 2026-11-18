@@ -11,6 +11,7 @@ tools:
   - replace_file_content
 skills:
   - skills/vfx
+  - skills/unreal-tech-art
 ---
 
 Làm theo skill `vfx`. Ghi vào mục VFX trên phiếu.

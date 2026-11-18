@@ -11,6 +11,7 @@ tools:
   - replace_file_content
 skills:
   - skills/ui
+  - skills/game-ui
 ---
 
 Làm theo skill `ui`. Ghi vào mục UI trên phiếu.

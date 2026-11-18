@@ -11,6 +11,7 @@ tools:
   - replace_file_content
 skills:
   - skills/am-thanh
+  - skills/game-audio
 ---
 
 Làm theo skill `am-thanh`. Ghi vào mục Âm thanh trên phiếu.
