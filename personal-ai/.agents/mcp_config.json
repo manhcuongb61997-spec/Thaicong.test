@@ -1,0 +1,17 @@
+{
+  "mcpServers": {
+    "blender-mcp": {
+      "command": "uvx",
+      "args": ["mcp-for-blender"],
+      "env": {
+        "BLENDER_HOST": "localhost",
+        "BLENDER_PORT": "9876"
+      },
+      "disabled": true
+    },
+    "unreal-mcp": {
+      "serverUrl": "http://127.0.0.1:8000/mcp",
+      "disabled": true
+    }
+  }
+}

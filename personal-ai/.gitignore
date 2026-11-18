@@ -1,0 +1,4 @@
+memory/*
+!memory/.gitkeep
+jobs/*
+!jobs/_mau.md
