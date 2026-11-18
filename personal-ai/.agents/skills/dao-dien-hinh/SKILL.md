@@ -7,4 +7,5 @@ description: Chốt một hướng nhìn, bảng màu và chất liệu cho cả
 
 1. Viết một hướng hình dùng chung cho UI, Blender, ánh sáng và VFX.
 2. Ghi vào mục Đạo diễn hình trên phiếu.
-3. Dừng để Cường ký hướng hình. Phòng dựng mở sau chữ ký đó.
+3. Việc là video hoặc phim thì ghi thứ tự cảnh và thời lượng vào mục Phân cảnh.
+4. Dừng để Cường ký hướng hình. Phòng dựng mở sau chữ ký đó.

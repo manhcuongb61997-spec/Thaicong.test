@@ -8,6 +8,8 @@ Một việc đang làm là một phiếu trong `jobs/`. Mở phòng theo skill 
 
 Hai chữ ký của Cường nằm trên phiếu: sau Đạo diễn hình, và khi phòng Duyệt cho qua. Trước chữ ký hướng hình, các phòng dựng chưa mở. Trước chữ ký cuối, phiếu chưa đóng.
 
+App, tool và web xong khi dòng Mở được có kết quả. Video và phim xong khi file ở mục Dựng mở lại đúng.
+
 Một lúc một phòng cầm Blender, một phòng cầm Unreal. MCP của hai phần mềm nằm trong `.agents/mcp_config.json`.
 
 Phòng code: Codex là người sửa file. Claude bản miễn phí nhận một gói ngắn gồm phần phiếu, danh sách file và diff, rồi trả kế hoạch hoặc câu đạt hay chưa đạt. Gói đó không chứa `memory/`.
