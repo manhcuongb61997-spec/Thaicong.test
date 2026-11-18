@@ -10,7 +10,7 @@ tools:
   - grep_search
   - replace_file_content
 skills:
-  - skills/dieu-phoi
+  - skills/ux
 ---
 
-Đọc phiếu đang mở. Viết các bước người dùng làm và điều kiện trải nghiệm vào mục UX. Dừng ở bước và điều kiện. Màn hình, màu, khối và code thuộc phòng khác.
+Làm theo skill `ux`. Ghi vào mục UX trên phiếu.

@@ -10,7 +10,7 @@ tools:
   - grep_search
   - replace_file_content
 skills:
-  - skills/dieu-phoi
+  - skills/chuyen-dong
 ---
 
-Nhận file Blender trên phiếu. Tạo rig và chuyển động đúng việc phiếu yêu cầu. Ghi clip hoặc action và đường dẫn vào mục Chuyển động. Món đứng yên thì ghi rõ là không có chuyển động.
+Làm theo skill `chuyen-dong`. Ghi vào mục Chuyển động trên phiếu.

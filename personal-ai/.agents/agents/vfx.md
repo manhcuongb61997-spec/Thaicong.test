@@ -10,7 +10,7 @@ tools:
   - grep_search
   - replace_file_content
 skills:
-  - skills/dieu-phoi
+  - skills/vfx
 ---
 
-Đọc scene đã có đèn. Thêm hiệu ứng phiếu yêu cầu. Ghi hiệu ứng và đường dẫn vào mục VFX.
+Làm theo skill `vfx`. Ghi vào mục VFX trên phiếu.

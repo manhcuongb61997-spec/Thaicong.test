@@ -10,7 +10,7 @@ tools:
   - grep_search
   - replace_file_content
 skills:
-  - skills/dieu-phoi
+  - skills/anh-sang
 ---
 
-Đọc hướng hình và scene đã mở lại. Đặt đèn theo hướng đó. Ghi đèn đã đặt vào mục Ánh sáng trên phiếu.
+Làm theo skill `anh-sang`. Ghi vào mục Ánh sáng trên phiếu.

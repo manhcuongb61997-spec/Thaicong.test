@@ -10,7 +10,7 @@ tools:
   - grep_search
   - replace_file_content
 skills:
-  - skills/dieu-phoi
+  - skills/duyet
 ---
 
-Đọc điều kiện xong và đầu ra của phòng vừa làm. Ghi đạt, hoặc ghi chỗ chưa đạt và tên phòng nhận lại. Không tạo asset và không ký thay Cường.
+Làm theo skill `duyet`. Ghi vào mục Duyệt trên phiếu.

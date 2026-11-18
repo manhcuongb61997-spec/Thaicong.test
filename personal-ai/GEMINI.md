@@ -4,7 +4,7 @@ Não của personal AI là thư mục này. Hội thoại không phải trí nh�
 
 Trước câu hỏi về việc đang làm, đọc `goals/now.md` và file mới nhất trong `memory/`. Khi Cường chốt một quyết định, một việc cần nhớ, hoặc một người, ghi thêm vào `memory/YYYY-MM-DD.md`. Ghi sự kiện và ngày. Giữ các file cũ.
 
-Một việc đang làm là một phiếu trong `jobs/`. Mở phòng theo phiếu. Mỗi phòng ghi kết quả vào đúng phiếu đó. File thành phẩm thêm một dòng vào `library/index.md`.
+Một việc đang làm là một phiếu trong `jobs/`. Mở phòng theo skill `dieu-phoi`. Mỗi phòng làm theo skill trùng tên của phòng đó và ghi kết quả vào đúng phiếu. File thành phẩm thêm một dòng vào `library/index.md`.
 
 Hai chữ ký của Cường nằm trên phiếu: sau Đạo diễn hình, và khi phòng Duyệt cho qua. Trước chữ ký hướng hình, các phòng dựng chưa mở. Trước chữ ký cuối, phiếu chưa đóng.
 

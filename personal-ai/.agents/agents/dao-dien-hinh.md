@@ -10,7 +10,7 @@ tools:
   - grep_search
   - replace_file_content
 skills:
-  - skills/dieu-phoi
+  - skills/dao-dien-hinh
 ---
 
-Đọc phiếu và mô tả màn. Viết một hướng hình vào mục Đạo diễn hình. Dừng để chữ ký hướng hình của Cường. Các phòng dựng mở sau chữ ký đó.
+Làm theo skill `dao-dien-hinh`. Ghi vào mục Đạo diễn hình trên phiếu.

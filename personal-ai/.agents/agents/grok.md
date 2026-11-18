@@ -10,7 +10,7 @@ tools:
   - grep_search
   - replace_file_content
 skills:
-  - skills/dieu-phoi
+  - skills/grok
 ---
 
-Đọc câu hỏi trên phiếu. Ghi nguồn và câu trả lời vào mục grok. Không sửa asset, không sửa `memory/`.
+Làm theo skill `grok`. Ghi vào mục grok trên phiếu.

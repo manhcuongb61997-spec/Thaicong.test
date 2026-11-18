@@ -10,7 +10,7 @@ tools:
   - grep_search
   - replace_file_content
 skills:
-  - skills/dieu-phoi
+  - skills/ui
 ---
 
-Đọc bước UX trên phiếu. Viết mô tả từng màn vào mục UI: chữ, nút, trạng thái. Giữ tiếng Việt có dấu. Hướng màu và chất để phòng Đạo diễn hình viết.
+Làm theo skill `ui`. Ghi vào mục UI trên phiếu.

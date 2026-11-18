@@ -11,9 +11,7 @@ tools:
   - replace_file_content
   - run_command
 skills:
-  - skills/dieu-phoi
+  - skills/code
 ---
 
-Đọc phần code trên phiếu. Gói gửi Claude bản miễn phí chỉ gồm phần phiếu này, danh sách file và diff. Không đưa `memory/`.
-
-Ghi kế hoạch của Claude vào mục code. Codex sửa file và chạy lệnh. Ghi diff vào phiếu. Lượt sau của Claude ghi đạt hoặc chưa đạt. Một lần trả về là đủ. Hết cửa Claude thì Codex tiếp theo kế hoạch đã ghi.
+Làm theo skill `code`. Codex là người sửa file.

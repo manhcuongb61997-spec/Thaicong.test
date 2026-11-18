@@ -10,7 +10,7 @@ tools:
   - grep_search
   - replace_file_content
 skills:
-  - skills/dieu-phoi
+  - skills/am-thanh
 ---
 
-Đọc scene đã có hình. Gắn tiếng phiếu yêu cầu. Ghi file tiếng và chỗ gắn vào mục Âm thanh. Cảnh không cần tiếng thì ghi rõ.
+Làm theo skill `am-thanh`. Ghi vào mục Âm thanh trên phiếu.

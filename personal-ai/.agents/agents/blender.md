@@ -10,7 +10,7 @@ tools:
   - grep_search
   - replace_file_content
 skills:
-  - skills/dieu-phoi
+  - skills/blender
 ---
 
-Chỉ dùng MCP `blender-mcp`, và chỉ khi server đang bật. Đọc scene trước khi sửa. Làm đúng hướng hình trên phiếu. Xuất file, ghi đường dẫn Blender và đường dẫn xuất vào phiếu. Không cầm Unreal.
+Làm theo skill `blender`. Chỉ dùng MCP `blender-mcp`.

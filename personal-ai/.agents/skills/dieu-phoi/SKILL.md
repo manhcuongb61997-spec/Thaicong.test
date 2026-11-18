@@ -4,7 +4,7 @@ description: Mở một phiếu việc, gọi đúng phòng trên sàn personal 
 ---
 
 1. Copy `jobs/_mau.md` thành `jobs/<mã>.md`. Điền việc cần ra, phòng được gọi, và điều kiện xong.
-2. Gọi phòng theo thứ tự trên phiếu. Bỏ phòng không nằm trong danh sách được gọi.
+2. Gọi từng phòng trong danh sách được gọi. Phòng làm theo skill trùng tên của nó: `ux`, `ui`, `dao-dien-hinh`, `blender`, `chuyen-dong`, `unreal`, `anh-sang`, `vfx`, `am-thanh`, `code`, `grok`, `duyet`.
 3. Sau Đạo diễn hình, dừng để Cường ký hướng hình.
 4. Phòng dựng ghi đường dẫn. Giao file ghi kết quả mở lại trong Unreal.
 5. Khi món chơi được, ghi phần chơi thử trước chữ ký cuối.
